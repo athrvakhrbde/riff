@@ -1,0 +1,142 @@
+/* Chapter frames + hero backdrop — SVG line art only */
+
+.hero {
+  scroll-margin-top: calc(var(--ds-header-h) + var(--ds-space-2));
+  position: relative;
+  isolation: isolate;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5.5rem 1.5rem 4rem;
+  overflow: hidden;
+  background: var(--ds-surface-ink);
+}
+
+.hero-back {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-back-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-back-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.38) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-fore {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* Shared chapter opener */
+.viz-chapter-lede {
+  margin: 0 0 var(--ds-space-5);
+  padding: 0;
+}
+
+.viz-chapter-lede-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--ds-hairline-strong);
+  outline: 1px solid var(--ds-neon-mid);
+  outline-offset: -2px;
+  aspect-ratio: 2 / 1;
+  max-height: min(38vh, 20rem);
+  background: var(--ds-surface-card);
+}
+
+@media (min-width: 768px) {
+  .viz-chapter-lede-frame {
+    aspect-ratio: 2.2 / 1;
+    max-height: min(44vh, 24rem);
+  }
+}
+
+.viz-chapter-lede-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.viz-chapter-lede-cap {
+  margin: var(--ds-space-2) 0 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ds-accent);
+  line-height: 1.45;
+  max-width: 40rem;
+  opacity: 0.92;
+}
+
+.viz-chapter-lede-cap::before {
+  content: "// ";
+  color: var(--ds-neon);
+  font-weight: 700;
+  margin-right: 0.25em;
+}
+
+.viz-rs-bridge--solo {
+  margin-top: var(--ds-space-2);
+  padding: var(--ds-space-4) 0;
+  border-top: 1px solid var(--ds-hairline);
+  border-bottom: 1px solid var(--ds-hairline);
+}
+
+.viz-bento-figure {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--ds-surface-ink);
+}
+
+.viz-bento-card {
+  overflow: hidden;
+}
+
+.viz-bento-svg {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  display: block;
+  vertical-align: middle;
+}
+
+.viz-bento-img-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 245, 0.92);
+  background: rgba(5, 5, 5, 0.94);
+  border: 0;
+  border-top: 2px solid var(--ds-neon);
+  line-height: 1.35;
+}

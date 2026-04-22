@@ -1,0 +1,176 @@
+/* Odyxeus-aligned design tokens (from odyxeus.com compiled CSS) */
+:root {
+  color-scheme: dark;
+  /* Primary brand (teal) + electric neon green — use both */
+  --ds-accent: #00ffce;
+  --ds-accent-dim: rgba(0, 255, 206, 0.14);
+  --ds-accent-mid: rgba(0, 255, 206, 0.48);
+  --ds-accent-ghost: rgba(0, 255, 206, 0.1);
+  --ds-neon: #39ff14;
+  --ds-neon-mid: rgba(57, 255, 20, 0.5);
+  --ds-neon-dim: rgba(57, 255, 20, 0.16);
+  --ds-neon-ghost: rgba(57, 255, 20, 0.1);
+  --ds-muted: #a1a1aa;
+  --ds-surface-ink: #000000;
+  --ds-surface-base: #050505;
+  --ds-surface-card: #0a0a0a;
+  --ds-sidebar: #111111;
+  --ds-panel: #e8e8e8;
+  --ds-panel-ink: #1a1a1a;
+  --ds-hairline: rgba(255, 255, 255, 0.1);
+  --ds-hairline-strong: rgba(255, 255, 255, 0.14);
+  --ds-text-primary: #f4f4f5;
+  --ds-text-secondary: rgba(244, 244, 245, 0.82);
+  --ds-text-tertiary: rgba(244, 244, 245, 0.5);
+  --ds-text-label: rgba(244, 244, 245, 0.62);
+  /* Diagram / SVG tiers — one system site-wide */
+  --ds-diagram-bg: rgba(255, 255, 255, 0.02);
+  --ds-diagram-ink-faint: rgba(244, 244, 245, 0.08);
+  --ds-diagram-ink: rgba(244, 244, 245, 0.18);
+  --ds-diagram-ink-mid: rgba(244, 244, 245, 0.32);
+  --ds-diagram-accent-soft: rgba(0, 255, 206, 0.24);
+  --ds-measure: 42rem;
+  --ds-measure-wide: 50rem;
+  --ds-radius-sm: 0;
+  --ds-radius-md: 0;
+  --ds-radius-lg: 0;
+  --ds-space-1: 0.375rem;
+  --ds-space-2: 0.75rem;
+  --ds-space-3: 1rem;
+  --ds-space-4: 1.5rem;
+  --ds-space-5: 2.25rem;
+  --ds-space-6: 3.5rem;
+  --ds-header-h: 3.25rem;
+  /* Layout tuned for desktop; smaller viewports see a full-screen gate */
+  --viewport-desktop-min: 1024px;
+  --font-display: "Tektur", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Helvetica, ui-sans-serif, system-ui,
+    sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--ds-surface-ink);
+  color: var(--ds-text-primary);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ds-accent);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.05em;
+  font-weight: 500;
+}
+
+::selection {
+  background: var(--ds-accent);
+  color: #000;
+}
+
+#root {
+  position: relative;
+  min-height: 100dvh;
+}
+
+/* Non-desktop: block app, show message only */
+.viewport-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ds-space-5);
+  background: var(--ds-surface-ink);
+  color: var(--ds-text-primary);
+  text-align: center;
+  border: 0;
+}
+
+.viewport-gate-inner {
+  max-width: 26rem;
+}
+
+.viewport-gate-title {
+  margin: 0 0 var(--ds-space-3);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--ds-text-primary);
+}
+
+.viewport-gate-body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ds-text-secondary);
+}
+
+.desktop-app {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .viewport-gate {
+    display: none;
+  }
+
+  .desktop-app {
+    display: contents;
+  }
+}
+
+/* Subtle noise overlay like odyxeus .ds-page-noise */
+.page-noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 206, 0.4) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 206, 0.22);
+}

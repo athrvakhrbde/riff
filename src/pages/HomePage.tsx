@@ -8,7 +8,6 @@ import {
 } from "../content";
 import { DesktopShell } from "../layouts/DesktopShell";
 import { useScrollProgress } from "../hooks/useScrollProgress";
-import { HeroBackdropSvg } from "../visuals/HeroBackdropSvg";
 import { HeroVisual } from "../visuals/HeroVisual";
 import { IcpVisual } from "../visuals/IcpVisual";
 import { ReplacingSamplesVisual } from "../visuals/ReplacingSamplesVisual";
@@ -35,7 +34,7 @@ export function HomePage() {
   }, []);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 768px)");
     const close = () => setOpenMenu(false);
     mq.addEventListener("change", close);
     return () => mq.removeEventListener("change", close);
@@ -43,7 +42,6 @@ export function HomePage() {
 
   return (
     <DesktopShell>
-      <div className="page-noise" aria-hidden />
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -57,15 +55,6 @@ export function HomePage() {
         <div className="site-header-inner">
           <button
             type="button"
-            className="nav-toggle"
-            aria-expanded={openMenu}
-            aria-controls="site-nav"
-            onClick={() => setOpenMenu((o) => !o)}
-          >
-            Menu
-          </button>
-          <button
-            type="button"
             className="site-wordmark"
             onClick={() => go("#intro")}
             aria-label="Riffle Growth — back to intro"
@@ -74,6 +63,15 @@ export function HomePage() {
               <span className="site-wordmark-name">Riffle</span>
               <span className="site-wordmark-tag">Growth</span>
             </span>
+          </button>
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={openMenu}
+            aria-controls="site-nav"
+            onClick={() => setOpenMenu((o) => !o)}
+          >
+            Menu
           </button>
           <nav
             id="site-nav"
@@ -89,12 +87,8 @@ export function HomePage() {
 
       <main id="main">
         <section id="intro" className="hero" aria-label="Introduction">
-          <div className="hero-back" aria-hidden>
-            <HeroBackdropSvg className="hero-back-svg" />
-            <div className="hero-back-scrim" />
-          </div>
           <div className="hero-fore">
-            <p className="hero-eyebrow">Growth deck</p>
+            <p className="hero-eyebrow">Growth strategy</p>
             <h1 className="hero-title">Riffle</h1>
             <p className="hero-lede">
               <span className="hero-lede-stat">30 weeks</span>

@@ -20,7 +20,7 @@ export function AboutAtharvaPage() {
   }, []);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 768px)");
     const close = () => setOpenMenu(false);
     mq.addEventListener("change", close);
     return () => mq.removeEventListener("change", close);
@@ -28,7 +28,6 @@ export function AboutAtharvaPage() {
 
   return (
     <DesktopShell>
-      <div className="page-noise" aria-hidden />
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -36,6 +35,12 @@ export function AboutAtharvaPage() {
       <header className="site-header">
         <div className="read-progress" style={{ transform: "scaleX(0)" }} aria-hidden />
         <div className="site-header-inner">
+          <Link className="site-wordmark" to="/" aria-label="Riffle Growth — back to deck">
+            <span className="site-wordmark-stack">
+              <span className="site-wordmark-name">Riffle</span>
+              <span className="site-wordmark-tag">Growth</span>
+            </span>
+          </Link>
           <button
             type="button"
             className="nav-toggle"
@@ -45,12 +50,6 @@ export function AboutAtharvaPage() {
           >
             Menu
           </button>
-          <Link className="site-wordmark" to="/" aria-label="Riffle Growth — back to deck">
-            <span className="site-wordmark-stack">
-              <span className="site-wordmark-name">Riffle</span>
-              <span className="site-wordmark-tag">Growth</span>
-            </span>
-          </Link>
           <nav
             id="site-nav-about"
             className={`site-nav${openMenu ? " is-open" : ""}`}

@@ -1,7 +1,6 @@
-/* Odyxeus-aligned design tokens (from odyxeus.com compiled CSS) */
+/* Dark deck tokens — teal + neon, sharp corners */
 :root {
   color-scheme: dark;
-  /* Primary brand (teal) + electric neon green — use both */
   --ds-accent: #00ffce;
   --ds-accent-dim: rgba(0, 255, 206, 0.14);
   --ds-accent-mid: rgba(0, 255, 206, 0.48);
@@ -23,7 +22,6 @@
   --ds-text-secondary: rgba(244, 244, 245, 0.82);
   --ds-text-tertiary: rgba(244, 244, 245, 0.5);
   --ds-text-label: rgba(244, 244, 245, 0.62);
-  /* Diagram / SVG tiers — one system site-wide */
   --ds-diagram-bg: rgba(255, 255, 255, 0.02);
   --ds-diagram-ink-faint: rgba(244, 244, 245, 0.08);
   --ds-diagram-ink: rgba(244, 244, 245, 0.18);
@@ -41,8 +39,6 @@
   --ds-space-5: 2.25rem;
   --ds-space-6: 3.5rem;
   --ds-header-h: 3.25rem;
-  /* Layout tuned for desktop; smaller viewports see a full-screen gate */
-  --viewport-desktop-min: 1024px;
   --font-display: "Tektur", sans-serif;
   --font-body: "Inter", "Helvetica Neue", Helvetica, ui-sans-serif, system-ui,
     sans-serif;
@@ -97,65 +93,6 @@ h4 {
 #root {
   position: relative;
   min-height: 100dvh;
-}
-
-/* Non-desktop: block app, show message only */
-.viewport-gate {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--ds-space-5);
-  background: var(--ds-surface-ink);
-  color: var(--ds-text-primary);
-  text-align: center;
-  border: 0;
-}
-
-.viewport-gate-inner {
-  max-width: 26rem;
-}
-
-.viewport-gate-title {
-  margin: 0 0 var(--ds-space-3);
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 5vw, 1.5rem);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  color: var(--ds-text-primary);
-}
-
-.viewport-gate-body {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--ds-text-secondary);
-}
-
-.desktop-app {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .viewport-gate {
-    display: none;
-  }
-
-  .desktop-app {
-    display: contents;
-  }
-}
-
-/* Subtle noise overlay like odyxeus .ds-page-noise */
-.page-noise {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  opacity: 0.055;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .custom-scrollbar {
